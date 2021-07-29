@@ -38,6 +38,14 @@ a {
   border-bottom: 2px solid;
 }
 
+.header .categories {
+  text-align: right;
+}
+
+.header .categories a {
+  margin-left: 14px;
+}
+
 .review-card {
   background: #fff;
   margin: 60px auto;

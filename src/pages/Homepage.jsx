@@ -12,7 +12,11 @@ const REVIEWS = gql`
             id, 
             rating,
             title,
-            body
+            body,
+            categories {
+                name,
+                id
+            }
         }
     }
 `
@@ -27,7 +31,6 @@ const Homepage = () => {
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error :(</p>
 
-        console.log(data)
 
     return (
         <div>
@@ -35,7 +38,9 @@ const Homepage = () => {
                 <div key={review.id} className='review-card'>
                     <div className="rating">{review.rating}</div>
                     <h2>{review.title}</h2>
-                    <small>console list</small>
+                    {review.categories.map(cat => (
+                        <small key={cat.id}>{cat.name}</small>
+                    ))}
 
                     <p>{review.body.substring(0, 200)}...</p>
 
